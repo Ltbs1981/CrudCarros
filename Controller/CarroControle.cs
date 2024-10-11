@@ -6,7 +6,12 @@ namespace CrudCarros.Controller
     internal class CarroControle
     {
         private CarroServico _carroServico;
-        public void Add(string marca, string modelo)
+
+        public CarroControle()
+        {
+            _carroServico = new CarroServico(); // Mova a inicialização para o construtor
+        }
+        public void Create(string marca, string modelo)
         {
             Carro carro = new Carro()
             {
@@ -16,7 +21,7 @@ namespace CrudCarros.Controller
             _carroServico = new CarroServico();
             _carroServico.Add(carro);
         }
-        public void GetAll()
+        public void Read()
         {
             var carros = _carroServico.GetAll();
             foreach (var carro in carros)
@@ -24,7 +29,7 @@ namespace CrudCarros.Controller
                 Console.WriteLine($"Carros Registrados:\n{carro.Id}\t\t{carro.Marca}\t\t{carro.Modelo}");
             }
         }
-        public void Update(int id, string novaMarca, string novoModelo)
+        public void Editar(int id, string novaMarca, string novoModelo)
         {
             _carroServico = new CarroServico();
             _carroServico.Update(id, novaMarca, novoModelo);
