@@ -4,18 +4,19 @@ namespace CrudCarros.Servicos
 {
     internal class CarroServico
     {
-        private CarroRepositorio _carroRepositorio;
+        private CarroRepositorio _carroRepositorio = new CarroRepositorio();
 
         public void Add(Carro carro)
         {
             _carroRepositorio.Add(carro);
-            //Console.WriteLine("Item inserido no sistema");
-            Console.WriteLine($"O carro {carro.Modelo}, foi inserido no sistema");
+            Console.WriteLine("Item inserido no sistema");
+//            Console.WriteLine($"O carro {carro.Modelo}, foi inserido no sistema");
         }
         public List <Carro> GetAll()
         {
             return _carroRepositorio.GetAll();
                     }
+
         public void Update(int id, string novaMarca, string novoModelo)
         {
             var carro = _carroRepositorio.GetAll().FirstOrDefault(x => x.Id == id);

@@ -3,8 +3,8 @@ namespace CrudCarros.Infra.Repositorio
 {
     internal class CarroRepositorio
     {
-        private List<Carro> carros = new List<Carro>();
-        private static int id = 1;
+        private static List<Carro> carros = new List<Carro>();
+        private static int id = 0;
 
         public void Add(Carro carro)
         {
